@@ -4,17 +4,29 @@
  */
 package Janela;
 
+import Objetos.Aluno;
+import java.awt.Component;
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author leonardo.hpavan
  */
 public class Principal extends javax.swing.JFrame {
-
+     
+    private int contador = 0;
+    private Aluno[] alunos = new Aluno [5];
+    private JP jp;
+    
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        jLTopo.setText("Cadastro Aluno #" + (contador + 1));
     }
 
     /**
@@ -26,22 +38,153 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLTopo = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTAluno = new javax.swing.JTextField();
+        jTIdade = new javax.swing.JTextField();
+        jBAdicionar = new javax.swing.JButton();
+        jBMostrar = new javax.swing.JButton();
+        jPResult = new javax.swing.JScrollPane();
+        jBNova = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLTopo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLTopo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTopo.setText("Cadastro Aluno #1");
+
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel2.setText("Aluno");
+
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jLabel3.setText("Idade");
+
+        jBAdicionar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jBAdicionar.setText("Adicionar");
+        jBAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBAdicionarActionPerformed(evt);
+            }
+        });
+
+        jBMostrar.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jBMostrar.setText("Mostrar");
+
+        jBNova.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jBNova.setText("Cadastrar Novamente");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTAluno, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jBAdicionar)
+                        .addContainerGap(14, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBMostrar)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPResult)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jBNova)))
+                .addContainerGap())
+            .addComponent(jLTopo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLTopo)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBAdicionar))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTIdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jBMostrar)))
+                .addGap(12, 12, 12)
+                .addComponent(jPResult, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBNova)
+                .addContainerGap(11, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAdicionarActionPerformed
+        Aluno a = new Aluno();
+        
+        if (contador < alunos.length){
+            a.setNome(jTAluno.getText());
+            a.setIdade(Integer.parseInt(jTIdade.getText()));
+            alunos[contador] = a;
+            jTAluno.setText("");
+            jTIdade.setText("");
+            jTAluno.requestFocus();
+            contador++;
+            jLTopo.setText("Cadastro Aluno #" + (contador + 1));
+            
+            if (contador == 5){
+                jTAluno.setEnabled(false);
+                jTIdade.setEnabled(false);
+                jBAdicionar.setEnabled(false);
+                mostrarCadastro();
+            }
+        } else {
+            jBAdicionar.setEnabled(false);
+            //JOptionPane.showMessageDialog(rootPane, "Limite de 5 alunos alcançado");
+        }
+    }//GEN-LAST:event_jBAdicionarActionPerformed
+
+    private void mostrarCadastro() {
+        jPResult.setLayout(new BoxLayout (jPResult, BoxLayout.Y_AXIS));
+        
+        for (Aluno aluno : alunos){
+            jp = new JP();
+            for (Component comp : jp.getComponents()){
+                if(comp instanceof JLabel && "jLNome".equals(comp.getName())){
+                    JLabel labelNome = (JLabel) comp;
+                    labelNome.setText(aluno.getNome());
+                }
+                
+                if(comp instanceof JLabel && "jLNome".equals(comp.getName())){
+                    JLabel labelIdade = (JLabel) comp;
+                    labelIdade.setText(String.valueOf(aluno.getIdade()));
+                }
+            }
+            jPResult.add(jp);
+        }
+        
+        jPResult.revalidate();
+        jPResult.repaint();
+    }
     /**
      * @param args the command line arguments
      */
@@ -78,5 +221,14 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAdicionar;
+    private javax.swing.JButton jBMostrar;
+    private javax.swing.JButton jBNova;
+    private javax.swing.JLabel jLTopo;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jPResult;
+    private javax.swing.JTextField jTAluno;
+    private javax.swing.JTextField jTIdade;
     // End of variables declaration//GEN-END:variables
 }
