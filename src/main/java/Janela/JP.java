@@ -15,6 +15,8 @@ public class JP extends javax.swing.JPanel {
      */
     public JP() {
         initComponents();
+        jLNome.setName("jLNome");
+        jLIdade.setName("jLIdade");
     }
 
     /**
@@ -37,9 +39,9 @@ public class JP extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("Idade:");
 
-        jLNome.setText("jLabel3");
+        jLNome.setText("jLNome");
 
-        jLIdade.setText("jLabel4");
+        jLIdade.setText("jLIdade");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,7 +58,7 @@ public class JP extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
                         .addComponent(jLIdade)))
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(210, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

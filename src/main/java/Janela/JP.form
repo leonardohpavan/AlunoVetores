@@ -30,7 +30,7 @@
                       <Component id="jLIdade" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="215" max="32767" attributes="0"/>
+              <EmptySpace pref="210" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,12 +71,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLNome">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="text" type="java.lang.String" value="jLNome"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLIdade">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
+        <Property name="text" type="java.lang.String" value="jLIdade"/>
       </Properties>
     </Component>
   </SubComponents>
